@@ -42,12 +42,7 @@ const UpdateProfile = ({
          status: !profile ? '' : profile.status,
          location: !profile ? '' : profile.location,
       })
-   }, [
-      getMyProfile,
-      profile && profile.bio,
-      profile && profile.status,
-      profile && profile.location,
-   ])
+   }, [getMyProfile])
 
    const onChange = (e) => {
       setFormData({ ...formData, [e.target.name]: e.target.value })
