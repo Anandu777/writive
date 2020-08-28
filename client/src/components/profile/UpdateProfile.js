@@ -22,8 +22,6 @@ const UpdateProfile = ({
    updateProfile,
    user,
 }) => {
-   const history = useHistory()
-
    const [formData, setFormData] = useState({
       bio: '',
       status: '',
@@ -42,7 +40,14 @@ const UpdateProfile = ({
          status: !profile ? '' : profile.status,
          location: !profile ? '' : profile.location,
       })
-   }, [])
+   }, [
+      getMyProfile,
+      profile && profile.bio,
+      profile && profile.status,
+      profile && profile.location,
+   ])
+
+   const history = useHistory()
 
    const onChange = (e) => {
       setFormData({ ...formData, [e.target.name]: e.target.value })
